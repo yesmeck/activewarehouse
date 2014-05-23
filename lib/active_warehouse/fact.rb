@@ -28,7 +28,7 @@ module ActiveWarehouse #:nodoc
       # as a dimension.  You must call +dimension+ instead of +belongs_to+.
       # Accepts same options as +belongs_to+.
       def dimension(association_id, options = {})
-        options[:class_name] ||= "#{association_id}Dimension".classify
+        options[:class_name] ||= "#{association_id}_dimension".classify
         options[:foreign_key] ||= "#{association_id}_id"
         slowly_changing_over = options.delete(:slowly_changing)
         belongs_to association_id, options
