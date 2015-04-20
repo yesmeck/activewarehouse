@@ -32,7 +32,7 @@ module ActiveWarehouse #:nodoc
         options[:foreign_key] ||= "#{association_id}_id"
         slowly_changing_over = options.delete(:slowly_changing)
         belongs_to association_id, options
-        relationship = reflections[association_id]
+        relationship = reflections[association_id.to_s]
 
         if slowly_changing_over
           if !dimensions.include?(slowly_changing_over)
